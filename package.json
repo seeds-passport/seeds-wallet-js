@@ -1,0 +1,26 @@
+{
+  "name": "seeds-wallet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "seeds",
+    "wallet",
+    "telos",
+    "passport"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bip38": "^3.1.1",
+    "eosjs-ecc": "^4.0.7",
+    "jest": "^27.4.7",
+    "node-localstorage": "^2.2.1",
+    "sha256": "^0.2.0",
+    "simple-crypto-js": "^3.0.1",
+    "wif": "^2.0.6"
+  }
+}
