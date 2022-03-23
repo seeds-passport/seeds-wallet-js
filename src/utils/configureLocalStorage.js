@@ -1,0 +1,45 @@
+/**
+ * configureLocalStorage
+ * @param  {any} [{
+ *   storage = localStorage,
+ *   rootKey = "seedsWallet",
+ * }={}]
+ * @return
+ */
+const configureLocalStorage = ({
+  storage = localStorage,
+  rootKey = "seedsWallet",
+} = {}) => {
+  return {
+    list: async () => {
+      const wallet = await storage.getItem(rootKey);
+      if (!wallet) return;
+
+      return Object.entries(JSON.parse(wallet));
+    },
+    set: async (key, value) => {
+      const savedWallet = await storage.getItem(rootKey);
+      const wallet = savedWallet ? JSON.parse(savedWallet) : {};
+
+      wallet[key] = value;
+
+      await storage.setItem(rootKey, JSON.stringify(wallet));
+    },
+    remove: async (key) => {
+      const savedWallet = await storage.getItem(rootKey);
+      const wallet = JSON.parse(savedWallet);
+
+      delete wallet[key];
+
+      await storage.setItem(rootKey, JSON.stringify(wallet));
+    },
+    get: async (key) => {
+      const savedWallet = await storage.getItem(rootKey);
+      if (!savedWallet) return;
+      const wallet = JSON.parse(savedWallet);
+      return wallet[key];
+    },
+  };
+};
+
+module.exports = configureLocalStorage;

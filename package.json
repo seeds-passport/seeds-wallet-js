@@ -1,10 +1,20 @@
 {
-  "name": "seeds-wallet",
+  "name": "seeds-wallet-js",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "SEEDS Wallet library",
+  "source": "src/main.js",
+  "exports": {
+    "require": "./dist/main.cjs",
+    "default": "./dist/main.modern.js"
+  },
+  "main": "./dist/main.cjs",
+  "module": "./dist/main.module.js",
+  "unpkg": "./dist/main.umd.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:dev": "jest --watch",
+    "build": "microbundle --external none",
+    "dev": "microbundle watch"
   },
   "keywords": [
     "seeds",
@@ -16,11 +26,19 @@
   "license": "ISC",
   "dependencies": {
     "bip38": "^3.1.1",
+    "eosjs": "^22.1.0",
     "eosjs-ecc": "^4.0.7",
-    "jest": "^27.4.7",
+    "jest": "^27.5.1",
+    "node-fetch": "^2.6.7",
     "node-localstorage": "^2.2.1",
     "sha256": "^0.2.0",
     "simple-crypto-js": "^3.0.1",
     "wif": "^2.0.6"
+  },
+  "devDependencies": {
+    "microbundle": "^0.14.2",
+    "seeds-authenticator-util": "https://github.com/seeds-passport/seeds-authenticator-util",
+    "seeds-esr-util": "https://github.com/seeds-passport/seeds-esr-util",
+    "seeds-mnemonic": "https://github.com/seeds-passport/seeds-mnemonic"
   }
 }
