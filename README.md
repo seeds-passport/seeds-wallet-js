@@ -1,0 +1,1 @@
+# SEEDS Wallet - javascript library

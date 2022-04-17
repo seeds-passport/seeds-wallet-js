@@ -1,10 +1,5 @@
-const SeedsWallet = require("./main");
-const { configureLocalStorage } = require("./utils");
-
-if (typeof localStorage === "undefined" || localStorage === null) {
-  var LocalStorage = require("node-localstorage").LocalStorage;
-  localStorage = new LocalStorage("./scratch");
-}
+import SeedsWallet from "./main";
+import { configureLocalStorage } from "./utils";
 
 const testPassword = "testsifra22";
 

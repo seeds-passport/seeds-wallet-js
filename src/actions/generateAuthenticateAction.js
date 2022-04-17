@@ -1,7 +1,7 @@
 const ACCOUNT_POLICY = "policy.seeds";
 const ACTION_CREATE = "create";
 
-const generateAuthenticateAction = ({
+export const generateAuthenticateAction = ({
   id,
   signature,
   policy,
@@ -28,5 +28,3 @@ const generateAuthenticateAction = ({
     },
   ];
 };
-
-module.exports = generateAuthenticateAction;

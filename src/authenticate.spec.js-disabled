@@ -1,12 +1,6 @@
-jest.setTimeout(15000);
-const SeedsWallet = require("./main");
-const SeedsAuthenticatorUtil = require("seeds-authenticator-util");
-const { configureLocalStorage } = require("./utils");
-
-if (typeof localStorage === "undefined" || localStorage === null) {
-  var LocalStorage = require("node-localstorage").LocalStorage;
-  localStorage = new LocalStorage("./scratch");
-}
+import SeedsWallet from "./main";
+import SeedsAuthenticatorUtil from "../libs/seeds-authenticator-util/src/main";
+import { configureLocalStorage } from "./utils";
 
 const testAccount = "aleksandar11";
 const testPassword = "testsifra22";
@@ -14,7 +8,9 @@ const testPrivateKey = "5J5jGdyU87PK4rjGBJ9nuVHeugLk4AUFDjcX28fL7QJmrdCmfwH";
 
 it("Retrieves the info from Authenticator", async () => {
   const storage = configureLocalStorage();
-  const authenticator = new SeedsAuthenticatorUtil();
+  const authenticator = new SeedsAuthenticatorUtil({});
+  console.log("AUTHENTICATOR: ");
+  console.log(authenticator);
   const walletInstance = new SeedsWallet({ storage, authenticator });
 
   const wallet = await walletInstance.setupWallet({
@@ -22,12 +18,12 @@ it("Retrieves the info from Authenticator", async () => {
     password: testPassword,
   });
 
+  console.log("WALLET NAME: ", wallet, testAccount, testPassword);
+
   const { token } = await walletInstance.authenticate({
     accountName: testAccount,
     password: testPassword,
   });
-
-  console.log("token:", token);
 
   expect(token).toBeTruthy();
 });

@@ -1,19 +1,19 @@
-const SimpleCrypto = require("simple-crypto-js").default;
-const { Api } = require("eosjs");
-const { JsSignatureProvider } = require("eosjs/dist/eosjs-jssig");
-const ecc = require("eosjs-ecc");
-const {
+import { SimpleCrypto } from "simple-crypto-js";
+import { Api, JsSignatureProvider } from "eosjs";
+import ecc from "eosjs-ecc";
+import fetch from "node-fetch";
+
+import {
   isValidPrivateKey,
   getAccountFromPublicKey,
   generateNewKeysWithMnemonic,
-} = require("./utils");
-const ESRUtil = require("seeds-esr-util");
+} from "./utils";
+import ESRUtil from "../libs/seeds-esr-util/src/main";
 
-const {
-  getUpdateAuthAction,
+import {
   generateAuthenticateAction,
   generateUpdateAuthAction,
-} = require("./actions");
+} from "./actions";
 
 /**
  * SeedsWallet implements generating, encryption and decryption of wallet keys and mnemonic
@@ -22,7 +22,7 @@ const {
 class SeedsWallet {
   constructor({ storage, authenticator }) {
     this.storage = storage;
-    this.esrUtil = new ESRUtil();
+    this.esrUtil = new ESRUtil(undefined, fetch);
     this.authenticator = authenticator;
   }
 
@@ -55,6 +55,7 @@ class SeedsWallet {
     if (!isValidPrivateKey(privateKey))
       throw new Error("private-key-not-valid");
 
+    console.log("SYMPLE CRYPTO: ", SimpleCrypto);
     const passwordHash = await ecc.sha256(password);
     const simpleCrypto = new SimpleCrypto(password);
 
@@ -114,6 +115,8 @@ class SeedsWallet {
 
     // 3. generate action
     const actions = generateUpdateAuthAction({ publicKey });
+    console.log("ACTIONS: ", actions);
+
     const esr = await this.esrUtil.encodeESR(actions);
     return esr;
   }
@@ -233,4 +236,4 @@ class SeedsWallet {
   }
 }
 
-module.exports = SeedsWallet;
+export { SeedsWallet };

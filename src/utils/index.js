@@ -1,11 +1,11 @@
-const ecc = require("eosjs-ecc");
-const configureLocalStorage = require("./configureLocalStorage");
-const generateNewKeysWithMnemonic = require("./generateNewKeysWithMnemonic");
-const getAccountFromPublicKey = require("./getAccountFromPublicKey");
+import ecc from "eosjs-ecc";
+import { configureLocalStorage } from "./configureLocalStorage";
+import { generateNewKeysWithMnemonic } from "./generateNewKeysWithMnemonic";
+import { getAccountFromPublicKey } from "./getAccountFromPublicKey";
 
 const isValidPrivateKey = (privateKey) => ecc.isValidPrivate(privateKey);
 
-module.exports = {
+export {
   isValidPrivateKey,
   getAccountFromPublicKey,
   configureLocalStorage,

@@ -1,8 +1,8 @@
-const fetch = require("node-fetch");
-const { JsonRpc } = require("eosjs");
+import fetch from "node-fetch";
+import { JsonRpc } from "eosjs";
 const DEFAULT_RPC_ENDPOINT = "https://test.hypha.earth/";
 
-const getAccountFromPublicKey = async ({
+export const getAccountFromPublicKey = async ({
   publicKey,
   accountName,
   rpcEndpoint = DEFAULT_RPC_ENDPOINT,
@@ -13,5 +13,3 @@ const getAccountFromPublicKey = async ({
   if (accountName && account_names.includes(accountName)) return accountName;
   return account_names && account_names[0];
 };
-
-module.exports = getAccountFromPublicKey;
