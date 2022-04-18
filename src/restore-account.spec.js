@@ -1,5 +1,5 @@
-import SeedsWallet from "./main";
-import { configureLocalStorage } from "./utils";
+const { SeedsWallet } = require("./main");
+const { configureLocalStorage } = require("./utils");
 
 const testPassword = "testsifra22";
 

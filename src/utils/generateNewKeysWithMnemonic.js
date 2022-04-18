@@ -1,4 +1,4 @@
-import { SeedsMnemonic } from "../../libs/seeds-mnemonic/src/main";
+const { SeedsMnemonic } = require("../../libs/seeds-mnemonic/src/main");
 
 const generateNewKeysWithMnemonic = () => {
   const seedsMnemonicInstance = new SeedsMnemonic();
@@ -6,4 +6,4 @@ const generateNewKeysWithMnemonic = () => {
   return seedsMnemonicInstance.generateRandomKeys();
 };
 
-export { generateNewKeysWithMnemonic };
+module.exports = { generateNewKeysWithMnemonic };

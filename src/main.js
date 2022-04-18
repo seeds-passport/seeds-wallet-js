@@ -1,19 +1,20 @@
-import { SimpleCrypto } from "simple-crypto-js";
-import { Api, JsSignatureProvider } from "eosjs";
-import ecc from "eosjs-ecc";
-import fetch from "node-fetch";
+const SimpleCrypto = require("simple-crypto-js").default;
+const { Api } = require("eosjs");
+const JsSignatureProvider = require("eosjs/dist/eosjs-jssig");
+const ecc = require("eosjs-ecc");
+const fetch = require("node-fetch");
 
-import {
+const {
   isValidPrivateKey,
   getAccountFromPublicKey,
   generateNewKeysWithMnemonic,
-} from "./utils";
-import ESRUtil from "../libs/seeds-esr-util/src/main";
+} = require("./utils");
+const ESRUtil = require("../libs/seeds-esr-util/src/main");
 
-import {
+const {
   generateAuthenticateAction,
   generateUpdateAuthAction,
-} from "./actions";
+} = require("./actions");
 
 /**
  * SeedsWallet implements generating, encryption and decryption of wallet keys and mnemonic
@@ -236,4 +237,4 @@ class SeedsWallet {
   }
 }
 
-export { SeedsWallet };
+module.exports = { SeedsWallet };

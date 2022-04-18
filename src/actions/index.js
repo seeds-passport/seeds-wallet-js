@@ -1,4 +1,4 @@
-import { generateUpdateAuthAction } from "./generateUpdateAuthAction";
-import { generateAuthenticateAction } from "./generateAuthenticateAction";
+const { generateUpdateAuthAction } = require("./generateUpdateAuthAction");
+const { generateAuthenticateAction } = require("./generateAuthenticateAction");
 
-export { generateUpdateAuthAction, generateAuthenticateAction };
+module.exports = { generateUpdateAuthAction, generateAuthenticateAction };

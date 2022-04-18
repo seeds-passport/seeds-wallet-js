@@ -2,7 +2,7 @@ const ACCOUNT_EOSIO = "eosio";
 const ACTION_UPDATEAUTH = "updateauth";
 const PERMISSION_SEEDS = "seeds";
 
-export const generateUpdateAuthAction = ({
+const generateUpdateAuthAction = ({
   publicKey,
   actor = "............1",
   permission = "............2",
@@ -50,3 +50,5 @@ export const generateUpdateAuthAction = ({
 
   return actions;
 };
+
+module.exports = { generateUpdateAuthAction };

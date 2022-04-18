@@ -1,5 +1,5 @@
-import SeedsWallet from "./main";
-import { configureLocalStorage } from "./utils/configureLocalStorage.js";
+const { SeedsWallet } = require("./main");
+const { configureLocalStorage } = require("./utils/configureLocalStorage.js");
 
 console.log("CONFIGURE LOCAL STORAGE: ", configureLocalStorage);
 

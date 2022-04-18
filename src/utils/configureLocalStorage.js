@@ -68,4 +68,4 @@ const configureLocalStorage = ({
   };
 };
 
-export { configureLocalStorage };
+module.exports = { configureLocalStorage };
