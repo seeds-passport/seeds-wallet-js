@@ -1,0 +1,36 @@
+{
+  "name": "@seeds-passport/seeds-authenticator-util",
+  "version": "1.0.1",
+  "description": "Simple util for communicating with SEEDS Authenticator",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "source": "src/main.js",
+  "browser": "dist/main.es.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "npx jest",
+    "test:dev": "npx jest --watch"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "keywords": [
+    "Seeds",
+    "Authenticator"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "rollup": "^2.70.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "@rollup/plugin-commonjs": "^21.0.3",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "babel-jest": "^27.4.6",
+    "jest": "^27.5.1",
+    "node-fetch": "^2.6.7"
+  }
+}

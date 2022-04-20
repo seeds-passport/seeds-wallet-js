@@ -1,0 +1,51 @@
+{
+  "name": "@seeds-passport/seeds-mnemonic",
+  "version": "1.0.1",
+  "description": "Generates random mnemonic and appropriate EOS public and private keys from it",
+  "repository": "https://github.com/seeds-passport/seeds-mnemonic",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "source": "src/main.js",
+  "main": "src/main.js",
+  "browser": "src/main.js",
+  "files": [
+    "src",
+    "dist",
+    "rollup.config.js"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "npx jest",
+    "test:dev": "npx jest --watch"
+  },
+  "keywords": [
+    "seeds",
+    "passport",
+    "mnemonic",
+    "eos",
+    "blockchain"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bip39": "^3.0.4",
+    "buffer": "^6.0.3",
+    "eosjs-ecc": "^4.0.7",
+    "ethereumjs-util": "^7.1.4",
+    "ethereumjs-wallet": "^1.0.2",
+    "hdkey": "^2.0.1",
+    "hex-encode-decode": "^1.0.0",
+    "js-sha256": "^0.9.0",
+    "utf8": "^3.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.0.3",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "jest": "^27.4.4",
+    "rollup": "^2.70.1",
+    "rollup-plugin-terser": "^7.0.2"
+  }
+}
